@@ -131,7 +131,6 @@ public class Calculator {
 		double secondNum = Double.parseDouble(currentInput);
 		double result = 0;
 		
-		
 		if (isDecimal || currentInput.contains(".")) {
 			// 실수 계산
 			switch (operator) {
@@ -156,10 +155,8 @@ public class Calculator {
 				case "-" : result = intFirstNum - intSecondNum; break;
 				case "x" : result = intFirstNum * intSecondNum; break;
 				case "/" :
-					while (intSecondNum != 0) {
+					if (intSecondNum != 0) {
 						result = intFirstNum / intSecondNum;
-					 if ((intFirstNum % intSecondNum) != 0){
-						result = (double) intFirstNum / (double) intSecondNum ;
 					} else {
 						textField.setText("Error");
 						return;
@@ -167,7 +164,6 @@ public class Calculator {
 					break;
 				}
 	        }
-		}
 		if (result == (int) result) {
 			textField.setText(String.valueOf((int) result));
 		} else {
