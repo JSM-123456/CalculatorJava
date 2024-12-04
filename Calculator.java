@@ -97,13 +97,14 @@ public class Calculator {
 			} else if (command.equals("/") || command.equals("x") || command.equals("-") || command.equals("+")) {
 				// 연산자 버튼 클릭 시 처리
 				if (!currentInput.isEmpty()) {
-					if (!operator.isEmpty()) {  // If there's an existing operator, calculate first.
-		                calculate();  // This allows for continuous operations.
+					if (!operator.isEmpty()) {
+		                calculate();  
 		            }
-		            firstNum = Double.parseDouble(currentInput); // Set firstNum for the next calculation
-		            operator = command; // Set the current operator
+					// currentInput을 firstNum으로 지정하고 이어서 계산하는 처리를 하였다.
+		            firstNum = Double.parseDouble(currentInput); // 다음 계산을 위한 firstNum 세팅
+		            operator = command; // 연산자 세팅
 		            textField.setText(currentInput + " " + operator + " ");
-		            currentInput = ""; // Clear the current input for the next number
+		            currentInput = ""; // 다음 숫자를 위한 currentInput 비우기
 			    }
 			} else if (command.equals("C")) {
 				currentInput = "";
